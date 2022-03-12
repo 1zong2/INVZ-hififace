@@ -1,12 +1,13 @@
+import sys
+sys.path.append("./")
+sys.path.append("../")
+sys.path.append("./submodel/")
 import torch
 import wandb
 import os
-import sys
 from lib.options import BaseOptions
 from lib.model_loader import CreateModel
 
-sys.path.append("./")
-sys.path.append("./submodel/")
 
 
 def train(gpu, args): 

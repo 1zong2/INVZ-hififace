@@ -9,7 +9,7 @@ class TrainOptions(BaseOptions):
         # Hyperparameters
         self.parser.add_argument('--batch_per_gpu', type=str, default=8)
         self.parser.add_argument('--max_step', type=str, default=400000)
-        self.parser.add_argument('--same_prob', type=float, default=0.2)
+        self.parser.add_argument('--same_prob', type=float, default=0.5)
 
         # Dataset
         self.parser.add_argument('--train_dataset_root_list', type=list, \
@@ -24,8 +24,8 @@ class TrainOptions(BaseOptions):
 
         # Weight
         self.parser.add_argument('--W_adv', type=float, default=1)
-        self.parser.add_argument('--W_id', type=float, default=3)
-        self.parser.add_argument('--W_recon', type=float, default=10)
-        self.parser.add_argument('--W_cycle', type=float, default=10)
-        self.parser.add_argument('--W_lpips', type=float, default=10)
-        self.parser.add_argument('--W_shape', type=float, default=20)
+        self.parser.add_argument('--W_id', type=float, default=5)
+        self.parser.add_argument('--W_recon', type=float, default=20)
+        self.parser.add_argument('--W_cycle', type=float, default=1)
+        self.parser.add_argument('--W_lpips', type=float, default=5)
+        self.parser.add_argument('--W_shape', type=float, default=0.5)

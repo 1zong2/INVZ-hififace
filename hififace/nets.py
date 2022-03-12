@@ -107,7 +107,7 @@ class SemanticFacialFusionModule(nn.Module):
         super(SemanticFacialFusionModule, self).__init__()
 
         self.ResBlock = ResBlock(256, 256, scale_factor=1, norm=norm, activation=activation)
-        self.AdaINResBlock = AdaINResBlock(256, 259, scale_factor=1, activation=activation, styledim=styledim)
+        self.AdaINResBlock = AdaINResBlock(256, 259, scale_factor=1, activation=activation, style_dim=styledim)
         
         self.F_up = F_up()
         self.face_pool = nn.AdaptiveAvgPool2d((64, 64)).eval()
@@ -205,11 +205,11 @@ class Decoder(nn.Module):
         super(Decoder, self).__init__()
 
         self.InitConv = nn.Conv2d(in_channels=3, out_channels=64, kernel_size=3, stride=1, padding=1, bias=False)
-        self.AdaINResBlock1 = AdaINResBlock(512, 512, scale_factor=1, activation=activation, styledim=styledim)
-        self.AdaINResBlock2 = AdaINResBlock(512, 512, scale_factor=1, activation=activation, styledim=styledim)
-        self.AdaINResBlock3 = AdaINResBlock(512, 512, scale_factor=2, activation=activation, styledim=styledim)
-        self.AdaINResBlock4 = AdaINResBlock(512, 512, scale_factor=2, activation=activation, styledim=styledim)
-        self.AdaINResBlock5 = AdaINResBlock(512, 256, scale_factor=2, activation=activation, styledim=styledim)
+        self.AdaINResBlock1 = AdaINResBlock(512, 512, scale_factor=1, activation=activation, style_dim=styledim)
+        self.AdaINResBlock2 = AdaINResBlock(512, 512, scale_factor=1, activation=activation, style_dim=styledim)
+        self.AdaINResBlock3 = AdaINResBlock(512, 512, scale_factor=2, activation=activation, style_dim=styledim)
+        self.AdaINResBlock4 = AdaINResBlock(512, 512, scale_factor=2, activation=activation, style_dim=styledim)
+        self.AdaINResBlock5 = AdaINResBlock(512, 256, scale_factor=2, activation=activation, style_dim=styledim)
 
         self.apply(weight_init)
 
